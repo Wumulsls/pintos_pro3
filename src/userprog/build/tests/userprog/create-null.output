@@ -1,0 +1,37 @@
+Copying tests/userprog/create-null to scratch partition...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.6.7
+              Built from SVN snapshot on November 2, 2014
+                  Compiled on May  9 2019 at 14:22:32
+========================================================================
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run create-null
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  164,400 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'create-null' into the file system...
+Erasing ustar archive...
+Executing 'create-null':
+(create-null) begin
+create-null: exit(-1)
+Execution of 'create-null' complete.
+Timer: 231 ticks
+Thread: 43 idle ticks, 178 kernel ticks, 12 user ticks
+hda2 (filesys): 64 reads, 210 writes
+hda3 (scratch): 102 reads, 2 writes
+Console: 883 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off..

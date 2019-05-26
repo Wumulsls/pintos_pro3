@@ -1,0 +1,24 @@
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.6.7
+              Built from SVN snapshot on November 2, 2014
+                  Compiled on Apr  5 2019 at 02:08:01
+========================================================================
+PiLo hda1
+Loading..........
+Kernel command line: -q run priority-donate-sema
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  164,400 loops/s.
+Boot complete.
+Executing 'priority-donate-sema':
+(priority-donate-sema) begin
+(priority-donate-sema) Main thread finished.
+(priority-donate-sema) end
+Execution of 'priority-donate-sema' complete.
+Timer: 41 ticks
+Thread: 0 idle ticks, 43 kernel ticks, 0 user ticks
+Console: 458 characters output
+Keyboard: 0 keys pressed
+Powering off..
