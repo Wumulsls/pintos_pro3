@@ -1,0 +1,46 @@
+Copying tests/filesys/extended/grow-sparse to scratch partition...
+Copying tests/filesys/extended/tar to scratch partition...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.6.7
+              Built from SVN snapshot on November 2, 2014
+                  Compiled on May  9 2019 at 14:22:32
+========================================================================
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run grow-sparse
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  164,400 loops/s.
+hda: 9,072 sectors (4 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda2: 236 sectors (118 kB), Pintos scratch (22)
+hda3: 8,192 sectors (4 MB), Pintos swap (23)
+hdb: 5,040 sectors (2 MB), model "BXHD00012", serial "Generic 1234"
+hdb1: 4,096 sectors (2 MB), Pintos file system (21)
+filesys: using hdb1
+scratch: using hda2
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'grow-sparse' into the file system...
+Putting 'tar' into the file system...
+Erasing ustar archive...
+Executing 'grow-sparse':
+(grow-sparse) begin
+(grow-sparse) create "testfile"
+(grow-sparse) open "testfile"
+(grow-sparse) seek "testfile"
+(grow-sparse) write "testfile"
+(grow-sparse) write "testfile": FAILED
+grow-sparse: exit(1)
+Execution of 'grow-sparse' complete.
+Timer: 302 ticks
+Thread: 2 idle ticks, 258 kernel ticks, 44 user ticks
+hdb1 (filesys): 118 reads, 482 writes
+hda2 (scratch): 235 reads, 2 writes
+Console: 1196 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off..

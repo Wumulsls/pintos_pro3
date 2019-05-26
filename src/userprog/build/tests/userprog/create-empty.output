@@ -29,11 +29,11 @@ Executing 'create-empty':
 (create-empty) end
 create-empty: exit(0)
 Execution of 'create-empty' complete.
-Timer: 239 ticks
-Thread: 48 idle ticks, 175 kernel ticks, 19 user ticks
-hda2 (filesys): 65 reads, 214 writes
+Timer: 297 ticks
+Thread: 42 idle ticks, 233 kernel ticks, 24 user ticks
+hda2 (filesys): 243 reads, 208 writes
 hda3 (scratch): 102 reads, 2 writes
-Console: 936 characters output
+Console: 937 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

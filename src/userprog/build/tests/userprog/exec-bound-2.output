@@ -27,11 +27,11 @@ Executing 'exec-bound-2':
 (exec-bound-2) begin
 exec-bound-2: exit(-1)
 Execution of 'exec-bound-2' complete.
-Timer: 236 ticks
-Thread: 51 idle ticks, 175 kernel ticks, 12 user ticks
-hda2 (filesys): 66 reads, 216 writes
+Timer: 294 ticks
+Thread: 41 idle ticks, 238 kernel ticks, 17 user ticks
+hda2 (filesys): 250 reads, 212 writes
 hda3 (scratch): 105 reads, 2 writes
-Console: 889 characters output
+Console: 890 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

@@ -1,0 +1,42 @@
+Copying tests/vm/mmap-null to scratch partition...
+Copying ../../tests/vm/sample.txt to scratch partition...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.6.7
+              Built from SVN snapshot on November 2, 2014
+                  Compiled on May  9 2019 at 14:22:32
+========================================================================
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run mmap-null
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  164,400 loops/s.
+hda: 13,104 sectors (6 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 106 sectors (53 kB), Pintos scratch (22)
+hda4: 8,192 sectors (4 MB), Pintos swap (23)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'mmap-null' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'mmap-null':
+(mmap-null) begin
+(mmap-null) open "sample.txt"
+(mmap-null) try to mmap at address 0
+mmap-null: exit(-1)
+Execution of 'mmap-null' complete.
+Timer: 235 ticks
+Thread: 19 idle ticks, 198 kernel ticks, 20 user ticks
+hda2 (filesys): 95 reads, 218 writes
+hda3 (scratch): 105 reads, 2 writes
+Console: 1029 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off..

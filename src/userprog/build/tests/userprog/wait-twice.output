@@ -34,9 +34,9 @@ child-simple: exit(81)
 (wait-twice) end
 wait-twice: exit(0)
 Execution of 'wait-twice' complete.
-Timer: 358 ticks
-Thread: 87 idle ticks, 238 kernel ticks, 35 user ticks
-hda2 (filesys): 130 reads, 410 writes
+Timer: 468 ticks
+Thread: 98 idle ticks, 330 kernel ticks, 42 user ticks
+hda2 (filesys): 475 reads, 404 writes
 hda3 (scratch): 201 reads, 2 writes
 Console: 1046 characters output
 Keyboard: 0 keys pressed

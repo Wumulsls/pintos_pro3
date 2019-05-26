@@ -31,11 +31,11 @@ Executing 'read-zero':
 (read-zero) end
 read-zero: exit(0)
 Execution of 'read-zero' complete.
-Timer: 256 ticks
-Thread: 46 idle ticks, 192 kernel ticks, 20 user ticks
-hda2 (filesys): 95 reads, 218 writes
+Timer: 311 ticks
+Thread: 35 idle ticks, 256 kernel ticks, 22 user ticks
+hda2 (filesys): 250 reads, 212 writes
 hda3 (scratch): 105 reads, 2 writes
-Console: 961 characters output
+Console: 962 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

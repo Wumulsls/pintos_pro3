@@ -38,9 +38,9 @@ child-args: exit(0)
 (exec-bound) end
 exec-bound: exit(0)
 Execution of 'exec-bound' complete.
-Timer: 373 ticks
-Thread: 95 idle ticks, 234 kernel ticks, 46 user ticks
-hda2 (filesys): 133 reads, 416 writes
+Timer: 483 ticks
+Thread: 95 idle ticks, 338 kernel ticks, 52 user ticks
+hda2 (filesys): 482 reads, 410 writes
 hda3 (scratch): 204 reads, 2 writes
 Console: 1100 characters output
 Keyboard: 0 keys pressed

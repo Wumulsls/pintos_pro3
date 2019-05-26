@@ -1,0 +1,57 @@
+Copying tests/filesys/extended/grow-root-lg to scratch partition...
+Copying tests/filesys/extended/tar to scratch partition...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.6.7
+              Built from SVN snapshot on November 2, 2014
+                  Compiled on May  9 2019 at 14:22:32
+========================================================================
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run grow-root-lg
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  164,400 loops/s.
+hda: 9,072 sectors (4 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda2: 235 sectors (117 kB), Pintos scratch (22)
+hda3: 8,192 sectors (4 MB), Pintos swap (23)
+hdb: 5,040 sectors (2 MB), model "BXHD00012", serial "Generic 1234"
+hdb1: 4,096 sectors (2 MB), Pintos file system (21)
+filesys: using hdb1
+scratch: using hda2
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'grow-root-lg' into the file system...
+Putting 'tar' into the file system...
+Erasing ustar archive...
+Executing 'grow-root-lg':
+(grow-root-lg) begin
+(grow-root-lg) creating and checking "file0"
+(grow-root-lg) creating and checking "file1"
+(grow-root-lg) creating and checking "file2"
+(grow-root-lg) creating and checking "file3"
+(grow-root-lg) creating and checking "file4"
+(grow-root-lg) creating and checking "file5"
+(grow-root-lg) creating and checking "file6"
+(grow-root-lg) creating and checking "file7"
+(grow-root-lg) creating and checking "file8"
+(grow-root-lg) creating and checking "file9"
+(grow-root-lg) creating and checking "file10"
+(grow-root-lg) creating and checking "file11"
+(grow-root-lg) creating and checking "file12"
+(grow-root-lg) creating and checking "file13"
+(grow-root-lg) creating and checking "file14"
+(grow-root-lg) create "file14": FAILED
+grow-root-lg: exit(1)
+Execution of 'grow-root-lg' complete.
+Timer: 633 ticks
+Thread: 4 idle ticks, 256 kernel ticks, 375 user ticks
+hdb1 (filesys): 845 reads, 565 writes
+hda2 (scratch): 234 reads, 2 writes
+Console: 1760 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off..

@@ -33,9 +33,9 @@ child-simple: exit(81)
 (wait-simple) end
 wait-simple: exit(0)
 Execution of 'wait-simple' complete.
-Timer: 356 ticks
-Thread: 87 idle ticks, 240 kernel ticks, 31 user ticks
-hda2 (filesys): 129 reads, 410 writes
+Timer: 465 ticks
+Thread: 93 idle ticks, 337 kernel ticks, 37 user ticks
+hda2 (filesys): 472 reads, 404 writes
 hda3 (scratch): 201 reads, 2 writes
 Console: 1023 characters output
 Keyboard: 0 keys pressed

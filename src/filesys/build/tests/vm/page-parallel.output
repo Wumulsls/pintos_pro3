@@ -1,0 +1,43 @@
+Copying tests/vm/page-parallel to scratch partition...
+Copying tests/vm/child-linear to scratch partition...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.6.7
+              Built from SVN snapshot on November 2, 2014
+                  Compiled on May  9 2019 at 14:22:32
+========================================================================
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run page-parallel
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  164,400 loops/s.
+hda: 13,104 sectors (6 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 209 sectors (104 kB), Pintos scratch (22)
+hda4: 8,192 sectors (4 MB), Pintos swap (23)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'page-parallel' into the file system...
+Putting 'child-linear' into the file system...
+Erasing ustar archive...
+Executing 'page-parallel':
+(page-parallel) begin
+(page-parallel) exec "child-linear"
+(page-parallel) exec "child-linear"
+(page-parallel) exec "child-linear": FAILED
+page-parallel: exit(1)
+Execution of 'page-parallel' complete.
+Timer: 1122 ticks
+Thread: 36 idle ticks, 260 kernel ticks, 837 user ticks
+hda2 (filesys): 172 reads, 424 writes
+hda3 (scratch): 208 reads, 2 writes
+Console: 1107 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

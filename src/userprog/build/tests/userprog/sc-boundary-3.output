@@ -27,11 +27,11 @@ Executing 'sc-boundary-3':
 (sc-boundary-3) begin
 sc-boundary-3: exit(-1)
 Execution of 'sc-boundary-3' complete.
-Timer: 236 ticks
-Thread: 49 idle ticks, 178 kernel ticks, 12 user ticks
-hda2 (filesys): 66 reads, 216 writes
+Timer: 293 ticks
+Thread: 42 idle ticks, 236 kernel ticks, 17 user ticks
+hda2 (filesys): 250 reads, 212 writes
 hda3 (scratch): 105 reads, 2 writes
-Console: 895 characters output
+Console: 896 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

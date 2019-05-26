@@ -31,11 +31,11 @@ Executing 'write-zero':
 (write-zero) end
 write-zero: exit(0)
 Execution of 'write-zero' complete.
-Timer: 253 ticks
-Thread: 47 idle ticks, 190 kernel ticks, 19 user ticks
-hda2 (filesys): 95 reads, 216 writes
+Timer: 309 ticks
+Thread: 53 idle ticks, 235 kernel ticks, 23 user ticks
+hda2 (filesys): 246 reads, 210 writes
 hda3 (scratch): 104 reads, 2 writes
-Console: 969 characters output
+Console: 970 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

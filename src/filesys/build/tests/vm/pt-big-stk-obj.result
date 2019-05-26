@@ -1,0 +1,20 @@
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (pt-big-stk-obj) begin
+  (pt-big-stk-obj) cksum: 3256410166
+  (pt-big-stk-obj) end
+Differences in `diff -u' format:
+  (pt-big-stk-obj) begin
+- (pt-big-stk-obj) cksum: 3256410166
+- (pt-big-stk-obj) end
++ Page fault at 0xbffefe78: not present error writing page in user context.
++ pt-big-stk-obj: dying due to interrupt 0x0e (#PF Page-Fault Exception).
++ Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x80480a8
++  cr2=bffefe78 error=00000006
++  eax=00000100 ebx=00000000 ecx=000000ad edx=00000027
++  esi=00000000 edi=00000000 esp=bffefe70 ebp=bfffffb8
++  cs=001b ds=0023 es=0023 ss=0023
+
+(Process exit codes are excluded for matching purposes.)

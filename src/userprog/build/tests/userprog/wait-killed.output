@@ -33,9 +33,9 @@ child-bad: exit(-1)
 (wait-killed) end
 wait-killed: exit(0)
 Execution of 'wait-killed' complete.
-Timer: 355 ticks
-Thread: 94 idle ticks, 235 kernel ticks, 29 user ticks
-hda2 (filesys): 129 reads, 414 writes
+Timer: 468 ticks
+Thread: 84 idle ticks, 347 kernel ticks, 39 user ticks
+hda2 (filesys): 478 reads, 408 writes
 hda3 (scratch): 203 reads, 2 writes
 Console: 1016 characters output
 Keyboard: 0 keys pressed

@@ -28,11 +28,11 @@ Executing 'open-empty':
 (open-empty) end
 open-empty: exit(0)
 Execution of 'open-empty' complete.
-Timer: 239 ticks
-Thread: 47 idle ticks, 176 kernel ticks, 18 user ticks
-hda2 (filesys): 81 reads, 210 writes
+Timer: 293 ticks
+Thread: 51 idle ticks, 223 kernel ticks, 22 user ticks
+hda2 (filesys): 241 reads, 206 writes
 hda3 (scratch): 102 reads, 2 writes
-Console: 893 characters output
+Console: 894 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

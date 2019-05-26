@@ -32,11 +32,11 @@ Executing 'close-normal':
 (close-normal) end
 close-normal: exit(0)
 Execution of 'close-normal' complete.
-Timer: 260 ticks
-Thread: 51 idle ticks, 188 kernel ticks, 23 user ticks
-hda2 (filesys): 95 reads, 216 writes
+Timer: 313 ticks
+Thread: 43 idle ticks, 245 kernel ticks, 27 user ticks
+hda2 (filesys): 246 reads, 210 writes
 hda3 (scratch): 104 reads, 2 writes
-Console: 1019 characters output
+Console: 1020 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

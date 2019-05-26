@@ -2769,11 +2769,11 @@ multi-oom: exit(53)
 (multi-oom) end
 multi-oom: exit(53)
 Execution of 'multi-oom' complete.
-Timer: 128069 ticks
-Thread: 1224 idle ticks, 4481 kernel ticks, 122367 user ticks
-hda2 (filesys): 265064 reads, 246 writes
+Timer: 115263 ticks
+Thread: 1123 idle ticks, 4546 kernel ticks, 109597 user ticks
+hda2 (filesys): 903 reads, 242 writes
 hda3 (scratch): 120 reads, 2 writes
-Console: 114647 characters output
+Console: 114644 characters output
 Keyboard: 0 keys pressed
 Exception: 260 page faults
 Powering off..

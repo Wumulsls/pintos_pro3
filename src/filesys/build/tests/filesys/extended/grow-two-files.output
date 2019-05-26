@@ -1,0 +1,47 @@
+Copying tests/filesys/extended/grow-two-files to scratch partition...
+Copying tests/filesys/extended/tar to scratch partition...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.6.7
+              Built from SVN snapshot on November 2, 2014
+                  Compiled on May  9 2019 at 14:22:32
+========================================================================
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run grow-two-files
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  164,400 loops/s.
+hda: 9,072 sectors (4 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda2: 238 sectors (119 kB), Pintos scratch (22)
+hda3: 8,192 sectors (4 MB), Pintos swap (23)
+hdb: 5,040 sectors (2 MB), model "BXHD00012", serial "Generic 1234"
+hdb1: 4,096 sectors (2 MB), Pintos file system (21)
+filesys: using hdb1
+scratch: using hda2
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'grow-two-files' into the file system...
+Putting 'tar' into the file system...
+Erasing ustar archive...
+Executing 'grow-two-files':
+(grow-two-files) begin
+(grow-two-files) create "a"
+(grow-two-files) create "b"
+(grow-two-files) open "a"
+(grow-two-files) open "b"
+(grow-two-files) write "a" and "b" alternately
+(grow-two-files) write 250 bytes at offset 0 in "a" returned 0: FAILED
+grow-two-files: exit(1)
+Execution of 'grow-two-files' complete.
+Timer: 345 ticks
+Thread: 2 idle ticks, 258 kernel ticks, 87 user ticks
+hdb1 (filesys): 148 reads, 490 writes
+hda2 (scratch): 237 reads, 2 writes
+Console: 1278 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off..

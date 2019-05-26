@@ -1,0 +1,39 @@
+Copying tests/userprog/close-bad-fd to scratch partition...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.6.7
+              Built from SVN snapshot on November 2, 2014
+                  Compiled on May  9 2019 at 14:22:32
+========================================================================
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run close-bad-fd
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  164,400 loops/s.
+hda: 13,104 sectors (6 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 102 sectors (51 kB), Pintos scratch (22)
+hda4: 8,192 sectors (4 MB), Pintos swap (23)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'close-bad-fd' into the file system...
+Erasing ustar archive...
+Executing 'close-bad-fd':
+(close-bad-fd) begin
+(close-bad-fd) end
+close-bad-fd: exit(0)
+Execution of 'close-bad-fd' complete.
+Timer: 214 ticks
+Thread: 19 idle ticks, 183 kernel ticks, 14 user ticks
+hda2 (filesys): 64 reads, 208 writes
+hda3 (scratch): 101 reads, 2 writes
+Console: 953 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off..

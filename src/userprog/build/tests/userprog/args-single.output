@@ -32,11 +32,11 @@ Executing 'args-single onearg':
 (args) end
 args-single: exit(0)
 Execution of 'args-single onearg' complete.
-Timer: 246 ticks
-Thread: 47 idle ticks, 179 kernel ticks, 23 user ticks
-hda2 (filesys): 66 reads, 208 writes
+Timer: 302 ticks
+Thread: 55 idle ticks, 220 kernel ticks, 30 user ticks
+hda2 (filesys): 242 reads, 204 writes
 hda3 (scratch): 101 reads, 2 writes
-Console: 1004 characters output
+Console: 1005 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

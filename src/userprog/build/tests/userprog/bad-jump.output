@@ -34,11 +34,11 @@ Interrupt 0x0e (#PF Page-Fault Exception) at eip=0
  cs=001b ds=0023 es=0023 ss=0023
 bad-jump: exit(-1)
 Execution of 'bad-jump' complete.
-Timer: 269 ticks
-Thread: 48 idle ticks, 179 kernel ticks, 44 user ticks
-hda2 (filesys): 66 reads, 210 writes
+Timer: 325 ticks
+Thread: 51 idle ticks, 228 kernel ticks, 48 user ticks
+hda2 (filesys): 243 reads, 206 writes
 hda3 (scratch): 102 reads, 2 writes
-Console: 1215 characters output
+Console: 1216 characters output
 Keyboard: 0 keys pressed
 Exception: 1 page faults
 Powering off..

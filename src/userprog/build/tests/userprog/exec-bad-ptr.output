@@ -27,11 +27,11 @@ Executing 'exec-bad-ptr':
 (exec-bad-ptr) begin
 exec-bad-ptr: exit(-1)
 Execution of 'exec-bad-ptr' complete.
-Timer: 231 ticks
-Thread: 43 idle ticks, 178 kernel ticks, 12 user ticks
-hda2 (filesys): 64 reads, 208 writes
+Timer: 286 ticks
+Thread: 55 idle ticks, 217 kernel ticks, 16 user ticks
+hda2 (filesys): 240 reads, 204 writes
 hda3 (scratch): 101 reads, 2 writes
-Console: 889 characters output
+Console: 890 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

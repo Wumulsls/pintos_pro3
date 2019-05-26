@@ -31,11 +31,11 @@ no-such-file: exit(-1)
 (exec-missing) end
 exec-missing: exit(0)
 Execution of 'exec-missing' complete.
-Timer: 255 ticks
-Thread: 48 idle ticks, 178 kernel ticks, 31 user ticks
-hda2 (filesys): 98 reads, 210 writes
+Timer: 309 ticks
+Thread: 42 idle ticks, 235 kernel ticks, 34 user ticks
+hda2 (filesys): 241 reads, 206 writes
 hda3 (scratch): 102 reads, 2 writes
-Console: 1002 characters output
+Console: 1003 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

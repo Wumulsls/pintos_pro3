@@ -28,11 +28,11 @@ Executing 'close-stdin':
 (close-stdin) end
 close-stdin: exit(0)
 Execution of 'close-stdin' complete.
-Timer: 234 ticks
-Thread: 46 idle ticks, 176 kernel ticks, 14 user ticks
-hda2 (filesys): 64 reads, 208 writes
+Timer: 290 ticks
+Thread: 55 idle ticks, 218 kernel ticks, 19 user ticks
+hda2 (filesys): 240 reads, 204 writes
 hda3 (scratch): 101 reads, 2 writes
-Console: 900 characters output
+Console: 901 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

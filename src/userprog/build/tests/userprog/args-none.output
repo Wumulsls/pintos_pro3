@@ -31,11 +31,11 @@ Executing 'args-none':
 (args) end
 args-none: exit(0)
 Execution of 'args-none' complete.
-Timer: 241 ticks
-Thread: 43 idle ticks, 180 kernel ticks, 20 user ticks
-hda2 (filesys): 66 reads, 208 writes
+Timer: 297 ticks
+Thread: 47 idle ticks, 226 kernel ticks, 26 user ticks
+hda2 (filesys): 242 reads, 204 writes
 hda3 (scratch): 101 reads, 2 writes
-Console: 943 characters output
+Console: 944 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

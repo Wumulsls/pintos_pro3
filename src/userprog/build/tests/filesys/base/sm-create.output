@@ -32,9 +32,9 @@ Executing 'sm-create':
 (sm-create) end
 sm-create: exit(0)
 Execution of 'sm-create' complete.
-Timer: 272 ticks
-Thread: 43 idle ticks, 184 kernel ticks, 48 user ticks
-hda2 (filesys): 102 reads, 234 writes
+Timer: 335 ticks
+Thread: 45 idle ticks, 236 kernel ticks, 56 user ticks
+hda2 (filesys): 278 reads, 229 writes
 hda3 (scratch): 106 reads, 2 writes
 Console: 1031 characters output
 Keyboard: 0 keys pressed

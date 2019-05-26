@@ -1,0 +1,50 @@
+Copying tests/vm/pt-write-code2 to scratch partition...
+Copying ../../tests/vm/sample.txt to scratch partition...
+squish-pty bochs -q
+========================================================================
+                       Bochs x86 Emulator 2.6.7
+              Built from SVN snapshot on November 2, 2014
+                  Compiled on May  9 2019 at 14:22:32
+========================================================================
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run pt-write-code2
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  164,400 loops/s.
+hda: 13,104 sectors (6 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 106 sectors (53 kB), Pintos scratch (22)
+hda4: 8,192 sectors (4 MB), Pintos swap (23)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'pt-write-code2' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'pt-write-code2':
+(pt-write-code2) begin
+(pt-write-code2) open "sample.txt"
+Page fault at 0x80480a0: rights violation error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002d825
+ cr2=080480a0 error=00000003
+ eax=080480a0 ebx=00000001 ecx=00000001 edx=c010720c
+ esi=c010720c edi=080480a0 esp=c010608c ebp=00000000
+ cs=0008 ds=0010 es=0010 ss=006a
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc0028a1f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 256 ticks
+Thread: 24 idle ticks, 187 kernel ticks, 45 user ticks
+hda2 (filesys): 96 reads, 218 writes
+hda3 (scratch): 105 reads, 2 writes
+Console: 1550 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off..

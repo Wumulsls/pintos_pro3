@@ -28,11 +28,11 @@ Executing 'read-bad-fd':
 (read-bad-fd) end
 read-bad-fd: exit(0)
 Execution of 'read-bad-fd' complete.
-Timer: 236 ticks
-Thread: 43 idle ticks, 179 kernel ticks, 16 user ticks
-hda2 (filesys): 66 reads, 210 writes
+Timer: 292 ticks
+Thread: 52 idle ticks, 223 kernel ticks, 19 user ticks
+hda2 (filesys): 243 reads, 206 writes
 hda3 (scratch): 102 reads, 2 writes
-Console: 900 characters output
+Console: 901 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

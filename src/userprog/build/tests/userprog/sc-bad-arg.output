@@ -27,11 +27,11 @@ Executing 'sc-bad-arg':
 (sc-bad-arg) begin
 sc-bad-arg: exit(-1)
 Execution of 'sc-bad-arg' complete.
-Timer: 232 ticks
-Thread: 47 idle ticks, 176 kernel ticks, 11 user ticks
-hda2 (filesys): 64 reads, 210 writes
+Timer: 288 ticks
+Thread: 51 idle ticks, 223 kernel ticks, 16 user ticks
+hda2 (filesys): 241 reads, 206 writes
 hda3 (scratch): 102 reads, 2 writes
-Console: 877 characters output
+Console: 878 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

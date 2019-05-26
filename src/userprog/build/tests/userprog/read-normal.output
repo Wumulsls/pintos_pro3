@@ -33,11 +33,11 @@ Executing 'read-normal':
 (read-normal) end
 read-normal: exit(0)
 Execution of 'read-normal' complete.
-Timer: 265 ticks
-Thread: 45 idle ticks, 192 kernel ticks, 30 user ticks
-hda2 (filesys): 95 reads, 216 writes
+Timer: 320 ticks
+Thread: 52 idle ticks, 237 kernel ticks, 34 user ticks
+hda2 (filesys): 246 reads, 210 writes
 hda3 (scratch): 104 reads, 2 writes
-Console: 1075 characters output
+Console: 1076 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

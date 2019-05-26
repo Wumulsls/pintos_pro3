@@ -37,9 +37,9 @@ child-args: exit(0)
 (exec-arg) end
 exec-arg: exit(0)
 Execution of 'exec-arg' complete.
-Timer: 365 ticks
-Thread: 91 idle ticks, 234 kernel ticks, 42 user ticks
-hda2 (filesys): 131 reads, 412 writes
+Timer: 475 ticks
+Thread: 87 idle ticks, 342 kernel ticks, 49 user ticks
+hda2 (filesys): 474 reads, 406 writes
 hda3 (scratch): 202 reads, 2 writes
 Console: 1066 characters output
 Keyboard: 0 keys pressed
