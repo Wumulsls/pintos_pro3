@@ -34,8 +34,8 @@ Executing 'close-normal':
 (close-normal) end
 close-normal: exit(0)
 Execution of 'close-normal' complete.
-Timer: 340 ticks
-Thread: 20 idle ticks, 293 kernel ticks, 29 user ticks
+Timer: 341 ticks
+Thread: 18 idle ticks, 295 kernel ticks, 30 user ticks
 hda2 (filesys): 247 reads, 209 writes
 hda3 (scratch): 104 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

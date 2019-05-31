@@ -29,8 +29,8 @@ Executing 'sc-bad-sp':
 (sc-bad-sp) begin
 sc-bad-sp: exit(-1)
 Execution of 'sc-bad-sp' complete.
-Timer: 312 ticks
-Thread: 20 idle ticks, 278 kernel ticks, 17 user ticks
+Timer: 311 ticks
+Thread: 20 idle ticks, 278 kernel ticks, 15 user ticks
 hda2 (filesys): 240 reads, 205 writes
 hda3 (scratch): 102 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

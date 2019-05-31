@@ -36,7 +36,7 @@ Executing 'args-dbl-space two  spaces!':
 args-dbl-space: exit(0)
 Execution of 'args-dbl-space two  spaces!' complete.
 Timer: 332 ticks
-Thread: 21 idle ticks, 281 kernel ticks, 32 user ticks
+Thread: 20 idle ticks, 282 kernel ticks, 32 user ticks
 hda2 (filesys): 241 reads, 203 writes
 hda3 (scratch): 101 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

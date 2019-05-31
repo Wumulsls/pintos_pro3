@@ -35,7 +35,7 @@ child-simple: exit(81)
 exec-once: exit(0)
 Execution of 'exec-once' complete.
 Timer: 559 ticks
-Thread: 43 idle ticks, 483 kernel ticks, 35 user ticks
+Thread: 36 idle ticks, 489 kernel ticks, 36 user ticks
 hda2 (filesys): 466 reads, 402 writes
 hda3 (scratch): 201 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

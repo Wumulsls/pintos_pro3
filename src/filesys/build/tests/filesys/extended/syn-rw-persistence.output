@@ -22,15 +22,15 @@ scratch: using hda2
 swap: using hda3
 Boot complete.
 Executing 'tar fs.tar /':
-tar: exit(-1)
+tar: exit(0)
 Execution of 'tar fs.tar /' complete.
 Appending 'fs.tar' to ustar archive on scratch device...
-Timer: 157 ticks
-Thread: 1 idle ticks, 133 kernel ticks, 25 user ticks
-hdb1 (filesys): 45 reads, 3 writes
-hda2 (scratch): 0 reads, 3 writes
+Timer: 2532 ticks
+Thread: 68 idle ticks, 335 kernel ticks, 2131 user ticks
+hdb1 (filesys): 1657 reads, 876 writes
+hda2 (scratch): 0 reads, 369 writes
 hda3 (swap): 0 reads, 0 writes
-Console: 911 characters output
+Console: 920 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
-Powering off..Copying tests/filesys/extended/syn-rw.tar out of /tmp/MB6psASvCs.dsk...
+Powering off..Copying tests/filesys/extended/syn-rw.tar out of /tmp/V8yvMjRDfc.dsk...

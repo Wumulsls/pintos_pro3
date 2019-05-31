@@ -37,7 +37,7 @@ Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc0000000
 bad-jump2: exit(-1)
 Execution of 'bad-jump2' complete.
 Timer: 353 ticks
-Thread: 27 idle ticks, 279 kernel ticks, 49 user ticks
+Thread: 26 idle ticks, 281 kernel ticks, 48 user ticks
 hda2 (filesys): 242 reads, 205 writes
 hda3 (scratch): 102 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

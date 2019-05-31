@@ -35,8 +35,8 @@ Executing 'sm-random':
 (sm-random) end
 sm-random: exit(0)
 Execution of 'sm-random' complete.
-Timer: 495 ticks
-Thread: 22 idle ticks, 292 kernel ticks, 183 user ticks
+Timer: 494 ticks
+Thread: 23 idle ticks, 291 kernel ticks, 182 user ticks
 hda2 (filesys): 271 reads, 232 writes
 hda3 (scratch): 110 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

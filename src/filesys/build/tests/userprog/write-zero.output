@@ -16,7 +16,7 @@ Calibrating timer...  164,400 loops/s.
 hda: 13,104 sectors (6 MB), model "BXHD00011", serial "Generic 1234"
 hda1: 192 sectors (96 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
-hda3: 106 sectors (53 kB), Pintos scratch (22)
+hda3: 105 sectors (52 kB), Pintos scratch (22)
 hda4: 8,192 sectors (4 MB), Pintos swap (23)
 filesys: using hda2
 scratch: using hda3
@@ -33,10 +33,10 @@ Executing 'write-zero':
 (write-zero) end
 write-zero: exit(0)
 Execution of 'write-zero' complete.
-Timer: 338 ticks
-Thread: 20 idle ticks, 296 kernel ticks, 24 user ticks
-hda2 (filesys): 250 reads, 212 writes
-hda3 (scratch): 105 reads, 2 writes
+Timer: 335 ticks
+Thread: 19 idle ticks, 294 kernel ticks, 25 user ticks
+hda2 (filesys): 247 reads, 210 writes
+hda3 (scratch): 104 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
 Console: 1064 characters output
 Keyboard: 0 keys pressed

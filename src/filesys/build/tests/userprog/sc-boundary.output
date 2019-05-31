@@ -30,7 +30,7 @@ Executing 'sc-boundary':
 sc-boundary: exit(42)
 Execution of 'sc-boundary' complete.
 Timer: 320 ticks
-Thread: 20 idle ticks, 285 kernel ticks, 17 user ticks
+Thread: 19 idle ticks, 286 kernel ticks, 17 user ticks
 hda2 (filesys): 249 reads, 211 writes
 hda3 (scratch): 105 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

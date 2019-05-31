@@ -37,9 +37,9 @@ Executing 'dir-mkdir':
 (dir-mkdir) end
 dir-mkdir: exit(0)
 Execution of 'dir-mkdir' complete.
-Timer: 627 ticks
-Thread: 9 idle ticks, 569 kernel ticks, 51 user ticks
-hdb1 (filesys): 532 reads, 481 writes
+Timer: 626 ticks
+Thread: 5 idle ticks, 572 kernel ticks, 51 user ticks
+hdb1 (filesys): 530 reads, 480 writes
 hda2 (scratch): 235 reads, 2 writes
 hda3 (swap): 0 reads, 0 writes
 Console: 1176 characters output

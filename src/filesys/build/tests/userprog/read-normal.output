@@ -36,7 +36,7 @@ Executing 'read-normal':
 read-normal: exit(0)
 Execution of 'read-normal' complete.
 Timer: 348 ticks
-Thread: 22 idle ticks, 291 kernel ticks, 37 user ticks
+Thread: 21 idle ticks, 294 kernel ticks, 35 user ticks
 hda2 (filesys): 248 reads, 209 writes
 hda3 (scratch): 104 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

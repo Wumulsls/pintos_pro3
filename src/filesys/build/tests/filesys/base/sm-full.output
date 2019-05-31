@@ -37,8 +37,8 @@ Executing 'sm-full':
 (sm-full) end
 sm-full: exit(0)
 Execution of 'sm-full' complete.
-Timer: 398 ticks
-Thread: 25 idle ticks, 281 kernel ticks, 94 user ticks
+Timer: 397 ticks
+Thread: 21 idle ticks, 285 kernel ticks, 94 user ticks
 hda2 (filesys): 288 reads, 238 writes
 hda3 (scratch): 106 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

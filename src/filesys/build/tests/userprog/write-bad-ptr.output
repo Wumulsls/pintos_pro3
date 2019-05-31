@@ -33,7 +33,7 @@ Executing 'write-bad-ptr':
 write-bad-ptr: exit(-1)
 Execution of 'write-bad-ptr' complete.
 Timer: 334 ticks
-Thread: 20 idle ticks, 294 kernel ticks, 23 user ticks
+Thread: 22 idle ticks, 291 kernel ticks, 23 user ticks
 hda2 (filesys): 247 reads, 209 writes
 hda3 (scratch): 104 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

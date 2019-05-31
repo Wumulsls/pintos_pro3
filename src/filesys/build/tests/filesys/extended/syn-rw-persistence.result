@@ -1,3 +1,1 @@
-FAIL
-Error extracting file system:
-tar: exit(-1)
+PASS

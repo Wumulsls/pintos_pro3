@@ -26,56 +26,6 @@ Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch device into file system...
 Putting 'dir-over-file' into the file system...
-Kernel PANIC at ../../filesys/fsutil.c:125 in fsutil_extract(): dir-over-file: open failed
-Call stack: 0xc0028a4f 0xc01060cc 0xc010608c 0xc010604c.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Kernel PANIC recursion at ../../devices/timer.c:222 in real_time_sleep().
-Page fault at 0xccccccd0: not present error writing page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc0028ec4
- cr2=ccccccd0 error=00000002
- eax=c010506c ebx=c0039360 ecx=cccccccc edx=c010506c
- esi=c0105000 edi=c0039378 esp=c00396e0 ebp=c010506c
- cs=0008 ds=0010 es=0010 ss=9468
-Page fault at 0xcccccce0: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002ed46
- cr2=cccccce0 error=00000000
- eax=cccccccc ebx=c010506c ecx=00000780 edx=cccccccc
- esi=00000064 edi=c0030a7c esp=c003183a ebp=c000eae0
- cs=0008 ds=0010 es=0010 ss=e974
-Page fault at 0xccccccd8: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002e844
- cr2=ccccccd8 error=00000000
- eax=cccccccc ebx=c010506c ecx=00000780 edx=000003f8
- esi=cccccccc edi=c0030a7c esp=c000e7e4 ebp=c000e904
- cs=0008 ds=0010 es=0010 ss=e770
-Page fault at 0xccccccd8: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002e844
- cr2=ccccccd8 error=00000000
- eax=cccccccc ebx=c010506c ecx=00000780 edx=000003f8
- esi=cccccccc edi=c0030a7c esp=c000e628 ebp=c000e748
- cs=0008 ds=0010 es=0010 ss=2f45
-Page fault at 0Page faultPiLo hda1
-Loading............
-Kernel command line: -q -f extract run dir-over-file
-Pintos booting with 4,096 kB RAM...
-383 pages available in kernel pool.
-383 pages available in user pool.
-Calibrating timer...  164,400 loops/s.
-hda: 9,072 sectors (4 MB), model "BXHD00011", serial "Generic 1234"
-hda1: 192 sectors (96 kB), Pintos OS kernel (20)
-hda2: 235 sectors (117 kB), Pintos scratch (22)
-hda3: 8,192 sectors (4 MB), Pintos swap (23)
-hdb: 5,040 sectors (2 MB), model "BXHD00012", serial "Generic 1234"
-hdb1: 4,096 sectors (2 MB), Pintos file system (21)
-filesys: using hdb1
-scratch: using hda2
-swap: using hda3
-Formatting file system...done.
-Boot complete.
-Extracting ustar archive from scratch device into file system...
-Putting 'dir-over-file' into the file system...
 Putting 'tar' into the file system...
 Erasing ustar archive...
 Executing 'dir-over-file':
@@ -86,7 +36,7 @@ Executing 'dir-over-file':
 dir-over-file: exit(0)
 Execution of 'dir-over-file' complete.
 Timer: 614 ticks
-Thread: 5 idle ticks, 571 kernel ticks, 40 user ticks
+Thread: 4 idle ticks, 572 kernel ticks, 41 user ticks
 hdb1 (filesys): 517 reads, 476 writes
 hda2 (scratch): 234 reads, 2 writes
 hda3 (swap): 0 reads, 0 writes

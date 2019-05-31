@@ -53,9 +53,9 @@ child-syn-wrt: exit(7)
 child-syn-wrt: exit(8)
 (syn-write) wait for child 3 of 10 returned 2 (expected 2)
 (syn-write) wait for child 4 of 10 returned 3 (expected 3)
+child-syn-wrt: exit(9)
 (syn-write) wait for child 5 of 10 returned 4 (expected 4)
 (syn-write) wait for child 6 of 10 returned 5 (expected 5)
-child-syn-wrt: exit(9)
 (syn-write) wait for child 7 of 10 returned 6 (expected 6)
 (syn-write) wait for child 8 of 10 returned 7 (expected 7)
 (syn-write) wait for child 9 of 10 returned 8 (expected 8)
@@ -65,8 +65,8 @@ child-syn-wrt: exit(9)
 (syn-write) end
 syn-write: exit(0)
 Execution of 'syn-write' complete.
-Timer: 1114 ticks
-Thread: 53 idle ticks, 578 kernel ticks, 485 user ticks
+Timer: 1113 ticks
+Thread: 60 idle ticks, 577 kernel ticks, 478 user ticks
 hda2 (filesys): 843 reads, 476 writes
 hda3 (scratch): 226 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

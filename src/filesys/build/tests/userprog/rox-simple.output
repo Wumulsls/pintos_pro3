@@ -34,7 +34,7 @@ Executing 'rox-simple':
 rox-simple: exit(0)
 Execution of 'rox-simple' complete.
 Timer: 331 ticks
-Thread: 20 idle ticks, 281 kernel ticks, 32 user ticks
+Thread: 20 idle ticks, 282 kernel ticks, 31 user ticks
 hda2 (filesys): 246 reads, 207 writes
 hda3 (scratch): 103 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

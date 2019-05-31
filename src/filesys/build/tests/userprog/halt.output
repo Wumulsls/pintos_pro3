@@ -27,7 +27,7 @@ Putting 'halt' into the file system...
 Erasing ustar archive...
 Executing 'halt':
 (halt) begin
-Timer: 302 ticks
+Timer: 301 ticks
 Thread: 20 idle ticks, 265 kernel ticks, 19 user ticks
 hda2 (filesys): 239 reads, 203 writes
 hda3 (scratch): 101 reads, 2 writes

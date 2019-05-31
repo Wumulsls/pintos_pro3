@@ -36,9 +36,9 @@ Executing 'dir-mk-tree':
 (dir-mk-tree) end
 dir-mk-tree: exit(0)
 Execution of 'dir-mk-tree' complete.
-Timer: 2296 ticks
-Thread: 6 idle ticks, 585 kernel ticks, 1707 user ticks
-hdb1 (filesys): 946 reads, 824 writes
+Timer: 2262 ticks
+Thread: 9 idle ticks, 584 kernel ticks, 1671 user ticks
+hdb1 (filesys): 962 reads, 836 writes
 hda2 (scratch): 239 reads, 2 writes
 hda3 (swap): 0 reads, 0 writes
 Console: 1216 characters output

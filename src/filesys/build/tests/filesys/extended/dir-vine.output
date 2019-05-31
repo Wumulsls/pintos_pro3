@@ -26,70 +26,21 @@ Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch device into file system...
 Putting 'dir-vine' into the file system...
-Kernel PANIC at ../../filesys/fsutil.c:125 in fsutil_extract(): dir-vine: open failed
-Call stack: 0xc0028a4f 0xc01060cc 0xc010608c 0xc010604c.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Kernel PANIC recursion at ../../devices/timer.c:222 in real_time_sleep().
-Page fault at 0xccccccd0: not present error writing page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc0028ec4
- cr2=ccccccd0 error=00000002
- eax=c010506c ebx=c0039360 ecx=cccccccc edx=c010506c
- esi=c0105000 edi=c0039378 esp=c00396e0 ebp=c010506c
- cs=0008 ds=0010 es=0010 ss=9468
-Page fault at 0xcccccce0: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002ed46
- cr2=cccccce0 error=00000000
- eax=cccccccc ebx=c010506c ecx=00000780 edx=cccccccc
- esi=00000064 edi=c0030a7c esp=c003183a ebp=c000eae0
- cs=0008 ds=0010 es=0010 ss=e974
-Page fault at 0xccccccd8: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002e844
- cr2=ccccccd8 error=00000000
- eax=cccccccc ebx=c010506c ecx=00000780 edx=000003f8
- esi=cccccccc edi=c0030a7c esp=c000e7e4 ebp=c000e904
- cs=0008 ds=0010 es=0010 ss=e770
-Page fault at 0xccccccd8: not present error reading page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002e844
- cr2=ccccccd8 error=00000000
- eax=cccccccc ebx=c010506c ecx=00000780 edx=000003f8
- esi=cccccccc edi=c0030a7c esp=c000e628 ebp=c000e748
- cs=0008 ds=0010 es=0010 ss=e678
-Page fault at 0xccccccd8: not present error reading page in kernel context.
-Interrupt 0x0e (PiLo hda1
-Loading............
-Kernel command line: -q -f extract run dir-vine
-Pintos booting with 4,096 kB RAM...
-383 pages available in kernel pool.
-383 pages available in user pool.
-Calibrating timer...  164,400 loops/s.
-hda: 9,072 sectors (4 MB), model "BXHD00011", serial "Generic 1234"
-hda1: 192 sectors (96 kB), Pintos OS kernel (20)
-hda2: 243 sectors (121 kB), Pintos scratch (22)
-hda3: 8,192 sectors (4 MB), Pintos swap (23)
-hdb: 5,040 sectors (2 MB), model "BXHD00012", serial "Generic 1234"
-hdb1: 4,096 sectors (2 MB), Pintos file system (21)
-filesys: using hdb1
-scratch: using hda2
-swap: using hda3
-Formatting file system...done.
-Boot complete.
-Extracting ustar archive from scratch device into file system...
-Putting 'dir-vine' into the file system...
 Putting 'tar' into the file system...
 Erasing ustar archive...
 Executing 'dir-vine':
 (dir-vine) begin
 (dir-vine) creating many levels of files and directories...
-dir-vine: exit(-1)
+(dir-vine) removing all but top 10 levels of files and directories...
+(dir-vine) end
+dir-vine: exit(0)
 Execution of 'dir-vine' complete.
-Timer: 644 ticks
-Thread: 5 idle ticks, 591 kernel ticks, 50 user ticks
-hdb1 (filesys): 546 reads, 497 writes
+Timer: 68163 ticks
+Thread: 15 idle ticks, 589 kernel ticks, 67561 user ticks
+hdb1 (filesys): 11047 reads, 7209 writes
 hda2 (scratch): 242 reads, 2 writes
 hda3 (swap): 0 reads, 0 writes
-Console: 1125 characters output
+Console: 1218 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..
