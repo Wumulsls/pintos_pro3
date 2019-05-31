@@ -120,6 +120,7 @@ struct thread
     struct list files;// the list of opened files
     struct file * executable; // the thread executable file 
     int max_fd; // the file descriptor used by the thread
+    struct dir *cwd; // current working directory
   };
 
 

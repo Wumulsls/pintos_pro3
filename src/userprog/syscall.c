@@ -14,23 +14,28 @@
 #include "process.h"
 #include "pagedir.h"
 #include "syscall.h"
+#include "filesys/inode.h"
+#include "filesys/directory.h"
 
 // syscall array
 syscall_function syscalls[SYSCALL_NUMBER];
 
-static void syscall_handler (struct intr_frame *);
+static void syscall_handler(struct intr_frame *);
 
-void exit(int exit_status){
+enum fd_search_filter { FD_FILE = 1, FD_DIRECTORY = 2 }; 
+
+void exit(int exit_status)
+{
   thread_current()->exit_status = exit_status;
-  thread_exit ();
+  thread_exit();
 }
 
-void
-syscall_init (void)
+void syscall_init(void)
 {
-  intr_register_int (0x30, 3, INTR_ON, syscall_handler, "syscall");
+  intr_register_int(0x30, 3, INTR_ON, syscall_handler, "syscall");
   // initialize the syscalls
-  for(int i = 0; i < SYSCALL_NUMBER; i++) syscalls[i] = NULL;
+  for (int i = 0; i < SYSCALL_NUMBER; i++)
+    syscalls[i] = NULL;
   // bind the syscalls to specific index of the array
   syscalls[SYS_EXIT] = sys_exit;
   syscalls[SYS_HALT] = sys_halt;
@@ -45,32 +50,49 @@ syscall_init (void)
   syscalls[SYS_SEEK] = sys_seek;
   syscalls[SYS_TELL] = sys_tell;
   syscalls[SYS_CLOSE] = sys_close;
+
+  /* Our implementation */
+  syscalls[SYS_CHDIR] = sys_chdir;
+  syscalls[SYS_MKDIR] = sys_mkdir;
+  syscalls[SYS_READDIR] = sys_readdir;
+  syscalls[SYS_ISDIR] = sys_isdir;
+  syscalls[SYS_INUMBER] = sys_inumber;
 }
 
 // check whether page p and p+3 has been in kernel virtual memory
-void check_page(void *p) {
+void check_page(void *p)
+{
   void *pagedir = pagedir_get_page(thread_current()->pagedir, p);
-  if(pagedir == NULL) exit(-1);
+  if (pagedir == NULL)
+    exit(-1);
   pagedir = pagedir_get_page(thread_current()->pagedir, p + 3);
-  if(pagedir == NULL) exit(-1);
+  if (pagedir == NULL)
+    exit(-1);
 }
 
 // check whether page p and p+3 is a user virtual address
-void check_addr(void *p) {
-  if(!is_user_vaddr(p)) exit(-1);
-  if(!is_user_vaddr(p + 3)) exit(-1);
+void check_addr(void *p)
+{
+  if (!is_user_vaddr(p))
+    exit(-1);
+  if (!is_user_vaddr(p + 3))
+    exit(-1);
 }
 
 // make check for page p
-void check(void *p) {
-  if(p == NULL) exit(-1);
+void check(void *p)
+{
+  if (p == NULL)
+    exit(-1);
   check_addr(p);
   check_page(p);
 }
 
 // make check for every function arguments
-void check_func_args(void *p, int argc) {
-  for(int i = 0; i < argc; i++) {
+void check_func_args(void *p, int argc)
+{
+  for (int i = 0; i < argc; i++)
+  {
     check(p);
     p++;
   }
@@ -78,192 +100,317 @@ void check_func_args(void *p, int argc) {
 
 // search the file list of the thread_current()
 // to get the file has corresponding fd
-struct file_node * find_file(struct list *files, int fd){
+struct file_node *find_file(struct list *files, int fd, enum fd_search_filter flag)
+{
   struct list_elem *e;
-  struct file_node * fn =NULL;
-  for (e = list_begin (files); e != list_end (files); e = list_next (e)){
-    fn = list_entry (e, struct file_node, file_elem);
+  struct file_node *fn = NULL;
+  for (e = list_begin(files); e != list_end(files); e = list_next(e))
+  {
+    fn = list_entry(e, struct file_node, file_elem);
     if (fd == fn->fd)
-      return fn;
+      // return fn;
+      if (fn->dir != NULL && (flag & FD_DIRECTORY) )
+        return fn;
+      else if(fn->dir == NULL && (flag & FD_FILE) )
+        return fn;
   }
   return NULL;
 }
 
 static void
-syscall_handler (struct intr_frame *f)
+syscall_handler(struct intr_frame *f)
 {
   check((void *)f->esp);
   check((void *)(f->esp + 4));
-  int num=*((int *)(f->esp));
+  int num = *((int *)(f->esp));
   // check whether the function is implemented
-  if(num < 0 || num >= SYSCALL_NUMBER) exit(-1);
-  if(syscalls[num] == NULL) exit(-1);
+  if (num < 0 || num >= SYSCALL_NUMBER)
+    exit(-1);
+  if (syscalls[num] == NULL)
+    exit(-1);
   syscalls[num](f);
 }
 
-void sys_exit(struct intr_frame * f) {
+void sys_exit(struct intr_frame *f)
+{
   int *p = f->esp;
   // save exit status
   exit(*(p + 1));
 }
 
-void sys_halt(struct intr_frame * f UNUSED) {
+void sys_halt(struct intr_frame *f UNUSED)
+{
   shutdown_power_off();
 }
 
-void sys_exec(struct intr_frame * f) {
-  int * p =f->esp;
+void sys_exec(struct intr_frame *f)
+{
+  int *p = f->esp;
   check((void *)(p + 1));
   check((void *)(*(p + 1)));
-  f->eax = process_execute((char*)*(p + 1));
+  f->eax = process_execute((char *)*(p + 1));
 }
 
-void sys_wait(struct intr_frame * f) {
-  int * p =f->esp;
+void sys_wait(struct intr_frame *f)
+{
+  int *p = f->esp;
   check(p + 1);
   f->eax = process_wait(*(p + 1));
 }
 
-void sys_create(struct intr_frame * f) {
-  int * p =f->esp;
+void sys_create(struct intr_frame *f)
+{
+  int * p = f->esp;
   check_func_args((void *)(p + 1), 2);
   check((void *)*(p + 1));
 
   acquire_file_lock();
-  // thread_exit ();
-  f->eax = filesys_create((const char *)*(p + 1),*(p + 2));
+  f->eax = filesys_create((const char *)*(p + 1),*(p + 2), false);
+  // f->eax = (success)?0:-1;
   release_file_lock();
 }
 
-void sys_remove(struct intr_frame * f) {
-  int * p =f->esp;
-  
+void sys_remove(struct intr_frame *f)
+{
+  int *p = f->esp;
+
   check_func_args((void *)(p + 1), 1);
-  check((void*)*(p + 1));
+  check((void *)*(p + 1));
 
   acquire_file_lock();
   f->eax = filesys_remove((const char *)*(p + 1));
   release_file_lock();
 }
 
-void sys_open(struct intr_frame * f) {
-  int * p =f->esp;
+void sys_open(struct intr_frame *f)
+{
+  int *p = f->esp;
   check_func_args((void *)(p + 1), 1);
-  check((void*)*(p + 1));
+  check((void *)*(p + 1));
 
-  struct thread * t = thread_current();
+  struct thread *t = thread_current();
   acquire_file_lock();
-  struct file * open_f = filesys_open((const char *)*(p + 1));
-  release_file_lock();
+  struct file *open_f = filesys_open((const char *)*(p + 1));
+  
   // check whether the open file is valid
-  if(open_f){
+  if (open_f)
+  {
     struct file_node *fn = malloc(sizeof(struct file_node));
     fn->fd = t->max_fd++;
     fn->file = open_f;
+
+    /* Our implementation TODO*/
+    struct inode *inode = file_get_inode(fn->file);
+    if (inode != NULL && inode->data.is_dir)
+    {
+      fn->dir = dir_open(inode_reopen(inode));
+    }
+    else
+      fn->dir = NULL;
+
     // put in file list of the corresponding thread
     list_push_back(&t->files, &fn->file_elem);
     f->eax = fn->fd;
-  } else
+  }
+  else
     f->eax = -1;
+  release_file_lock();
 }
 
-void sys_filesize(struct intr_frame * f) {
-  int * p =f->esp;
+void sys_filesize(struct intr_frame *f)
+{
+  int *p = f->esp;
   check_func_args((void *)(p + 1), 1);
-  struct file_node * open_f = find_file(&thread_current()->files, *(p + 1));
+  struct file_node *open_f = find_file(&thread_current()->files, *(p + 1), FD_FILE);
   // check whether the write file is valid
-  if (open_f){
+  if (open_f)
+  {
     acquire_file_lock();
     f->eax = file_length(open_f->file);
     release_file_lock();
-  } else
+  }
+  else
     f->eax = -1;
 }
 
-void sys_read(struct intr_frame * f) {
-  int * p =f->esp;
+void sys_read(struct intr_frame *f)
+{
+  int *p = f->esp;
   check_func_args((void *)(p + 1), 3);
   check((void *)*(p + 2));
 
   int fd = *(p + 1);
-  uint8_t * buffer = (uint8_t*)*(p + 2);
-  off_t size = *(p + 3);  
+  uint8_t *buffer = (uint8_t *)*(p + 2);
+  off_t size = *(p + 3);
   // read from standard input
-  if (fd == 0) {
-    for (int i=0; i<size; i++)
+  if (fd == 0)
+  {
+    for (int i = 0; i < size; i++)
       buffer[i] = input_getc();
     f->eax = size;
   }
-  else{
-    struct file_node * open_f = find_file(&thread_current()->files, *(p + 1));
+  else
+  {
+    struct file_node *open_f = find_file(&thread_current()->files, *(p + 1), FD_FILE);
     // check whether the read file is valid
-    if (open_f){
+    if (open_f)
+    {
       acquire_file_lock();
       f->eax = file_read(open_f->file, buffer, size);
       release_file_lock();
-    } else
+    }
+    else
       f->eax = -1;
   }
 }
 
-void sys_write(struct intr_frame * f) {
-  int * p =f->esp;
+void sys_write(struct intr_frame *f)
+{
+  int *p = f->esp;
   check_func_args((void *)(p + 1), 3);
   check((void *)*(p + 2));
   int fd2 = *(p + 1);
-  const char * buffer2 = (const char *)*(p + 2);
+  const char *buffer2 = (const char *)*(p + 2);
   off_t size2 = *(p + 3);
   // write to standard output
-  if (fd2==1) {
-    putbuf(buffer2,size2);
+  if (fd2 == 1)
+  {
+    putbuf(buffer2, size2);
     f->eax = size2;
   }
-  else{
-    struct file_node * openf = find_file(&thread_current()->files, *(p + 1));
+  else
+  {
+    struct file_node *openf = find_file(&thread_current()->files, *(p + 1), FD_FILE);
     // check whether the write file is valid
-    if (openf){
+    if (openf)
+    {
       acquire_file_lock();
       f->eax = file_write(openf->file, buffer2, size2);
       release_file_lock();
-    } else
+    }
+    else
       f->eax = 0;
   }
 }
 
-void sys_seek(struct intr_frame * f) {
-  int * p =f->esp;
+void sys_seek(struct intr_frame *f)
+{
+  int *p = f->esp;
   check_func_args((void *)(p + 1), 2);
-  struct file_node * openf = find_file(&thread_current()->files, *(p + 1));
-  if (openf){
+  struct file_node *openf = find_file(&thread_current()->files, *(p + 1), FD_FILE);
+  if (openf)
+  {
     acquire_file_lock();
     file_seek(openf->file, *(p + 2));
     release_file_lock();
   }
 }
 
-void sys_tell(struct intr_frame * f) {
-  int * p =f->esp;
+void sys_tell(struct intr_frame *f)
+{
+  int *p = f->esp;
   check_func_args((void *)(p + 1), 1);
-  struct file_node * open_f = find_file(&thread_current()->files, *(p + 1));
+  struct file_node *open_f = find_file(&thread_current()->files, *(p + 1), FD_FILE);
   // check whether the tell file is valid
-  if (open_f){
+  if (open_f)
+  {
     acquire_file_lock();
     f->eax = file_tell(open_f->file);
     release_file_lock();
-  }else
+  }
+  else
     f->eax = -1;
 }
 
-void sys_close(struct intr_frame * f) {
+void sys_close(struct intr_frame *f)
+{
   int *p = f->esp;
   check_func_args((void *)(p + 1), 1);
-  struct file_node * openf = find_file(&thread_current()->files, *(p + 1));
-  if (openf){
+  struct file_node *openf = find_file(&thread_current()->files, *(p + 1), FD_FILE | FD_DIRECTORY);
+  if (openf)
+  {
     acquire_file_lock();
     file_close(openf->file);
+    if (openf->dir)
+      dir_close(openf->dir);
     release_file_lock();
     // remove file form file list
     list_remove(&openf->file_elem);
     free(openf);
   }
+}
+
+void sys_chdir(struct intr_frame *f)
+{ //TODO需不需要改成void返回
+  int *p = f->esp;
+  check_func_args((void *)(p + 1), 1);
+
+  acquire_file_lock();
+  bool success = filesys_chdir((char *)*((int *)(p + 1))); //TODO
+  f->eax = success;
+  release_file_lock();
+}
+
+void sys_mkdir(struct intr_frame *f)
+{
+  int *p = f->esp;
+    // msg("---------------1----------------\n");
+  check_func_args((void *)(p + 1), 1);
+  check((void *)*(p + 1));
+  acquire_file_lock();
+
+  f->eax = filesys_create((void *)*(p + 1), 0, true); 
+  release_file_lock();
+}
+
+void sys_readdir(struct intr_frame *f) //TODO 大体抄
+{ 
+    int *p = f->esp;
+    int fd = *((int *)f->esp + 1);
+    char *name = (char*)*((int *)f->esp + 2);
+    bool ret;
+    check_func_args((void *)(p + 1), 1);
+
+    struct file_node* file_d;
+    acquire_file_lock();
+    file_d = find_file(thread_current(), fd, FD_DIRECTORY);
+    if (file_d == NULL) goto done;
+
+    struct inode *inode;
+    inode = file_get_inode(file_d->file); // file descriptor -> inode
+    if(inode == NULL) goto done;
+
+    // check whether it is a valid directory
+    if(!inode->data.is_dir) goto done;
+
+    ASSERT (file_d->dir != NULL); // see sys_open()
+    ret = dir_readdir (file_d->dir, name);
+
+  done:
+    release_file_lock();
+}
+
+void sys_isdir(struct intr_frame *f) //TODO
+{
+  int *p = f->esp;
+  int fd = *((int *)f->esp + 1);
+  check_func_args((void *)(p + 1), 1);
+
+  acquire_file_lock();
+  struct file_node *file_d = find_file(thread_current(), fd, FD_FILE | FD_DIRECTORY);
+  bool success = file_get_inode(file_d->file)->data.is_dir;
+  f->eax = success;
+  release_file_lock();
+}
+
+void sys_inumber(struct intr_frame *f) //TODO
+{
+  int *p = f->esp;
+  int fd = *((int *)f->esp + 1);
+  acquire_file_lock();
+
+  struct file_node* file_d = find_file(thread_current(), fd, FD_FILE | FD_DIRECTORY);
+  int ret = (int) inode_get_inumber (file_get_inode(file_d->file));
+
+  release_file_lock();
 }

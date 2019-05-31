@@ -6,4 +6,3 @@
 Bochs is exiting with the following message:
 [ACPI  ] ACPI control: soft power off
 ========================================================================
-getting tests/filesys/extended/grow-root-sm.tar failed (scratch disk tar archive ends unexpectedly)

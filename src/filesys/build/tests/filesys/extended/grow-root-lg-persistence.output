@@ -5,36 +5,32 @@ squish-pty bochs -q
                   Compiled on May  9 2019 at 14:22:32
 ========================================================================
 PiLo hda1
-Loading...........
+Loading............
 Kernel command line: -q run 'tar fs.tar /' append fs.tar
 Pintos booting with 4,096 kB RAM...
 383 pages available in kernel pool.
 383 pages available in user pool.
 Calibrating timer...  164,400 loops/s.
 hda: 11,088 sectors (5 MB), model "BXHD00011", serial "Generic 1234"
-hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda1: 192 sectors (96 kB), Pintos OS kernel (20)
 hda2: 2,048 sectors (1 MB), Pintos scratch (22)
 hda3: 8,192 sectors (4 MB), Pintos swap (23)
 hdb: 5,040 sectors (2 MB), model "BXHD00012", serial "Generic 1234"
 hdb1: 4,096 sectors (2 MB), Pintos file system (21)
 filesys: using hdb1
 scratch: using hda2
+swap: using hda3
 Boot complete.
 Executing 'tar fs.tar /':
-fs.tar: create failed
-tar: exit(1)
+tar: exit(-1)
 Execution of 'tar fs.tar /' complete.
 Appending 'fs.tar' to ustar archive on scratch device...
-Kernel PANIC at ../../filesys/fsutil.c:187 in fsutil_append(): fs.tar: open failed
-Call stack: 0xc0028a1f 0xc010740c.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Timer: 153 ticks
-Thread: 2 idle ticks, 129 kernel ticks, 22 user ticks
-hdb1 (filesys): 98 reads, 4 writes
-hda2 (scratch): 0 reads, 0 writes
-Console: 1156 characters output
+Timer: 191 ticks
+Thread: 1 idle ticks, 142 kernel ticks, 51 user ticks
+hdb1 (filesys): 48 reads, 4 writes
+hda2 (scratch): 0 reads, 3 writes
+hda3 (swap): 0 reads, 0 writes
+Console: 911 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
-Powering off..Copying tests/filesys/extended/grow-root-lg.tar out of /tmp/WXzeMGmrI2.dsk...
+Powering off..Copying tests/filesys/extended/grow-root-lg.tar out of /tmp/BFP2bHmTYJ.dsk...

@@ -7,19 +7,20 @@ squish-pty bochs -q
                   Compiled on May  9 2019 at 14:22:32
 ========================================================================
 PiLo hda1
-Loading...........
+Loading............
 Kernel command line: -q -f extract run write-boundary
 Pintos booting with 4,096 kB RAM...
 383 pages available in kernel pool.
 383 pages available in user pool.
 Calibrating timer...  164,400 loops/s.
 hda: 13,104 sectors (6 MB), model "BXHD00011", serial "Generic 1234"
-hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda1: 192 sectors (96 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
 hda3: 109 sectors (54 kB), Pintos scratch (22)
 hda4: 8,192 sectors (4 MB), Pintos swap (23)
 filesys: using hda2
 scratch: using hda3
+swap: using hda4
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch device into file system...
@@ -32,11 +33,12 @@ Executing 'write-boundary':
 (write-boundary) end
 write-boundary: exit(0)
 Execution of 'write-boundary' complete.
-Timer: 239 ticks
-Thread: 22 idle ticks, 198 kernel ticks, 21 user ticks
-hda2 (filesys): 97 reads, 225 writes
+Timer: 347 ticks
+Thread: 22 idle ticks, 302 kernel ticks, 25 user ticks
+hda2 (filesys): 258 reads, 218 writes
 hda3 (scratch): 108 reads, 2 writes
-Console: 1047 characters output
+hda4 (swap): 0 reads, 0 writes
+Console: 1096 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

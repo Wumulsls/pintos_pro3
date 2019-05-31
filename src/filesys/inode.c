@@ -8,27 +8,6 @@
 #include "threads/malloc.h"
 #include "filesys/cache.h"
 
-/* Identifies an inode. */
-#define INODE_MAGIC 0x494e4f44
-
-#define DIRECT_BLOCKS_COUNT 124
-#define INDIRECT_BLOCKS_PER_SECTOR 128
-
-/* On-disk inode.
-   Must be exactly BLOCK_SECTOR_SIZE bytes long. */
-struct inode_disk
-  {
-    //block_sector_t start;               /* First data sector. */
-   /**Data sectors*/
-    block_sector_t direct_blocks[DIRECT_BLOCKS_COUNT];
-	 block_sector_t indirect_block;
-	 block_sector_t doubly_indirect_block;
-   
-    off_t length;                       /* File size in bytes. */
-    unsigned magic;                     /* Magic number. */
-    //uint32_t unused[125];               /* Not used. */
-  };
-
 struct inode_indirect_block_sector {
 	  block_sector_t blocks[INDIRECT_BLOCKS_PER_SECTOR];
 	};
@@ -51,18 +30,6 @@ static inline size_t
 	{
 	  return a < b ? a : b;
 	}
-
-
-/* In-memory inode. */
-struct inode 
-  {
-    struct list_elem elem;              /* Element in inode list. */
-    block_sector_t sector;              /* Sector number of disk location. */
-    int open_cnt;                       /* Number of openers. */
-    bool removed;                       /* True if deleted, false otherwise. */
-    int deny_write_cnt;                 /* 0: writes ok, >0: deny writes. */
-    struct inode_disk data;             /* Inode content. */
-  };
 
 static block_sector_t
 	index_to_sector (const struct inode_disk *idisk, off_t index)
@@ -155,7 +122,7 @@ inode_init (void)
    Returns true if successful.
    Returns false if memory or disk allocation fails. */
 bool
-inode_create (block_sector_t sector, off_t length)
+inode_create (block_sector_t sector, off_t length, bool is_dir)
 {
   struct inode_disk *disk_inode = NULL;
   bool success = false;
@@ -172,6 +139,7 @@ inode_create (block_sector_t sector, off_t length)
       //size_t sectors = bytes_to_sectors (length);
       disk_inode->length = length;
       disk_inode->magic = INODE_MAGIC;
+      disk_inode->is_dir = is_dir;
       if (inode_allocate (disk_inode))
         {
           /* Our implementation: cache write */
@@ -512,7 +480,7 @@ inode_reserve (struct inode_disk *disk_inode, off_t length)
 	
 // 	  off_t file_length = disk_inode->length;
 // 	  if(file_length < 0) return false;
-	  if (length < 0) return false
+	  if (length < 0) return false;
 	
 	  // (remaining) number of sectors, occupied by this file.
 	  size_t num_sectors = bytes_to_sectors(length);

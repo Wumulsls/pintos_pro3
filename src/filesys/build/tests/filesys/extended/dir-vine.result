@@ -1,15 +1,8 @@
 FAIL
-Test output failed to match any acceptable form.
-
-Acceptable output:
-  (dir-vine) begin
-  (dir-vine) creating many levels of files and directories...
-  (dir-vine) removing all but top 10 levels of files and directories...
-  (dir-vine) end
-Differences in `diff -u' format:
-  (dir-vine) begin
-  (dir-vine) creating many levels of files and directories...
-- (dir-vine) removing all but top 10 levels of files and directories...
-- (dir-vine) end
-
-(Process exit codes are excluded for matching purposes.)
+Kernel panic in run: PANIC at ../../filesys/fsutil.c:125 in fsutil_extract(): dir-vine: open failed
+Call stack: 0xc0028a4f 0xc01060cc 0xc010608c 0xc010604c
+Translation of call stack:
+0xc0028a4f: debug_panic (.../../lib/kernel/debug.c:38)
+0xc01060cc: (unknown)
+0xc010608c: (unknown)
+0xc010604c: (unknown)

@@ -1,2 +1,8 @@
 FAIL
-run: open "/": FAILED
+Kernel panic in run: PANIC at ../../filesys/fsutil.c:125 in fsutil_extract(): dir-rm-cwd: open failed
+Call stack: 0xc0028a4f 0xc01060cc 0xc010608c 0xc010604c
+Translation of call stack:
+0xc0028a4f: debug_panic (.../../lib/kernel/debug.c:38)
+0xc01060cc: (unknown)
+0xc010608c: (unknown)
+0xc010604c: (unknown)

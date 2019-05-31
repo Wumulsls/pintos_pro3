@@ -6,19 +6,20 @@ squish-pty bochs -q
                   Compiled on May  9 2019 at 14:22:32
 ========================================================================
 PiLo hda1
-Loading...........
+Loading............
 Kernel command line: -q -f extract run exec-missing
 Pintos booting with 4,096 kB RAM...
 383 pages available in kernel pool.
 383 pages available in user pool.
 Calibrating timer...  164,400 loops/s.
 hda: 13,104 sectors (6 MB), model "BXHD00011", serial "Generic 1234"
-hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda1: 192 sectors (96 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
 hda3: 103 sectors (51 kB), Pintos scratch (22)
 hda4: 8,192 sectors (4 MB), Pintos swap (23)
 filesys: using hda2
 scratch: using hda3
+swap: using hda4
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch device into file system...
@@ -32,11 +33,12 @@ no-such-file: exit(-1)
 (exec-missing) end
 exec-missing: exit(0)
 Execution of 'exec-missing' complete.
-Timer: 234 ticks
-Thread: 21 idle ticks, 184 kernel ticks, 31 user ticks
-hda2 (filesys): 98 reads, 210 writes
+Timer: 332 ticks
+Thread: 19 idle ticks, 283 kernel ticks, 33 user ticks
+hda2 (filesys): 240 reads, 205 writes
 hda3 (scratch): 102 reads, 2 writes
-Console: 1048 characters output
+hda4 (swap): 0 reads, 0 writes
+Console: 1097 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..

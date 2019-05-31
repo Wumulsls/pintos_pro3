@@ -1,21 +1,8 @@
 FAIL
-Test output failed to match any acceptable form.
-
-Acceptable output:
-  (dir-rm-parent) begin
-  (dir-rm-parent) mkdir "a"
-  (dir-rm-parent) chdir "a"
-  (dir-rm-parent) mkdir "b"
-  (dir-rm-parent) chdir "b"
-  (dir-rm-parent) remove "/a" (must fail)
-  (dir-rm-parent) end
-Differences in `diff -u' format:
-  (dir-rm-parent) begin
-  (dir-rm-parent) mkdir "a"
-- (dir-rm-parent) chdir "a"
-- (dir-rm-parent) mkdir "b"
-- (dir-rm-parent) chdir "b"
-- (dir-rm-parent) remove "/a" (must fail)
-- (dir-rm-parent) end
-
-(Process exit codes are excluded for matching purposes.)
+Kernel panic in run: PANIC at ../../filesys/fsutil.c:125 in fsutil_extract(): dir-rm-parent: open failed
+Call stack: 0xc0028a4f 0xc01060cc 0xc010608c 0xc010604c
+Translation of call stack:
+0xc0028a4f: debug_panic (.../../lib/kernel/debug.c:38)
+0xc01060cc: (unknown)
+0xc010608c: (unknown)
+0xc010604c: (unknown)

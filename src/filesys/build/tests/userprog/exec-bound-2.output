@@ -6,19 +6,20 @@ squish-pty bochs -q
                   Compiled on May  9 2019 at 14:22:32
 ========================================================================
 PiLo hda1
-Loading...........
+Loading............
 Kernel command line: -q -f extract run exec-bound-2
 Pintos booting with 4,096 kB RAM...
 383 pages available in kernel pool.
 383 pages available in user pool.
 Calibrating timer...  164,400 loops/s.
 hda: 13,104 sectors (6 MB), model "BXHD00011", serial "Generic 1234"
-hda1: 182 sectors (91 kB), Pintos OS kernel (20)
+hda1: 192 sectors (96 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
 hda3: 106 sectors (53 kB), Pintos scratch (22)
 hda4: 8,192 sectors (4 MB), Pintos swap (23)
 filesys: using hda2
 scratch: using hda3
+swap: using hda4
 Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch device into file system...
@@ -28,11 +29,12 @@ Executing 'exec-bound-2':
 (exec-bound-2) begin
 exec-bound-2: exit(-1)
 Execution of 'exec-bound-2' complete.
-Timer: 214 ticks
-Thread: 21 idle ticks, 183 kernel ticks, 12 user ticks
-hda2 (filesys): 66 reads, 216 writes
+Timer: 320 ticks
+Thread: 21 idle ticks, 284 kernel ticks, 17 user ticks
+hda2 (filesys): 249 reads, 211 writes
 hda3 (scratch): 105 reads, 2 writes
-Console: 935 characters output
+hda4 (swap): 0 reads, 0 writes
+Console: 984 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off..
